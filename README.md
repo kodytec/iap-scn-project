@@ -12,7 +12,7 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación diseñada p
 1. **[Inicio de sesión](#inicio-de-sesión):**  
    Permitir a los alumnos autenticarse en el sistema utilizando sus credenciales.
 
-2. **[Listado de cursos](#funcionalidad-detallada-listado-de-cursos):**  
+2. **[Listado de cursos](#listado-de-cursos):**  
    Mostrar los cursos en los que el alumno está inscrito, permitiendo filtrar por estado (aprobado o desaprobado) y ordenar por nota.
 
 3. **[Listado de pagos](#listado-de-pagos):**  
@@ -23,7 +23,7 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación diseñada p
 
 ---
 
-## Funcionalidad Detallada: Inicio de Sesión
+## Inicio de Sesión
 
 ### Descripción General
 
@@ -71,7 +71,7 @@ alumnos = {
 
 ---
 
-## Funcionalidad Detallada: Listado de Cursos
+## Listado de Cursos
 
 ### Descripción General
 
