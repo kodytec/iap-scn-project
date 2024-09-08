@@ -1,3 +1,6 @@
+Aquí está el `README.md` actualizado con los enlaces a cada funcionalidad y un footer para darle un toque más profesional y académico:
+
+```markdown
 # Sistema de Control de Notas (SCN)
 
 **Curso:** Introducción a la Programación con Python (IAP)  
@@ -9,16 +12,16 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación diseñada p
 
 ### Funcionalidades Principales
 
-1. **Inicio de sesión:**  
+1. **[Inicio de sesión](#inicio-de-sesión):**  
    Permitir a los alumnos autenticarse en el sistema utilizando sus credenciales.
 
-2. **Listado de cursos:**  
+2. **[Listado de cursos](#funcionalidad-detallada-listado-de-cursos):**  
    Mostrar los cursos en los que el alumno está inscrito, permitiendo filtrar por estado (aprobado o desaprobado) y ordenar por nota.
 
-3. **Listado de pagos:**  
+3. **[Listado de pagos](#listado-de-pagos):**  
    Mostrar los pagos realizados por el alumno, con la posibilidad de ver el historial completo.
 
-4. **Realizar pago:**  
+4. **[Realizar pago](#realizar-pago):**  
    Permitir a los alumnos realizar pagos pendientes directamente desde la aplicación.
 
 ---
@@ -73,3 +76,12 @@ cursos = [
 | `listarCursosPorAlumno('C1', 'todos', True)`       | Muestra todos los cursos del alumno con código 'C1' y los ordena de mayor a menor nota.                    | `[{'id': 'C101', 'nombreCurso': 'Matemáticas', 'nota': 18.5, 'grado': '5to', 'profesor': 'Renzo Santillán', 'estado': 'aprobado'}, {'id': 'C102', 'nombreCurso': 'Ciencias', 'nota': 16.0, 'grado': '5to', 'profesor': 'Pamela Vinazza', 'estado': 'aprobado'}, {'id': 'C103', 'nombreCurso': 'Historia', 'nota': 9.0, 'grado': '5to', 'profesor': 'Joel Campos', 'estado': 'desaprobado'}]` |
 | `listarCursosPorAlumno('C2', 'aprobado', True)`    | Filtra los cursos aprobados del alumno con código 'C2' y los ordena de mayor a menor nota.                  | `[]` (Lista vacía si el alumno no tiene cursos que coincidan con los criterios de búsqueda).                                                                          |
 
+---
+
+## A cerca de
+
+Este proyecto es parte del curso **Introducción a la Programación con Python (IAP)** ofrecido por **Kodytec**.  
+Para más información sobre el curso y otros proyectos, visita nuestro sitio web https://kodytec.pe o contáctanos directamente al +51 968491916.  
+**Kodytec** se compromete a brindar educación de calidad en el campo de la programación y tecnología a colegios nacionales y particulares.
+
+---
