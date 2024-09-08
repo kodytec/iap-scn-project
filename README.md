@@ -23,6 +23,54 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación diseñada p
 
 ---
 
+## Funcionalidad Detallada: Inicio de Sesión
+
+### Descripción General
+
+Desarrollar una función en Python que permita a los alumnos iniciar sesión en el sistema verificando su nombre de usuario y clave. La función debe comprobar si el alumno existe y si la clave coincide con la clave almacenada, sin proporcionar detalles sobre el motivo de una clave incorrecta para mantener la seguridad.
+
+### Detalle de la Funcionalidad
+
+- **Función:** `inicioSesion(usuario: str, clave: str) -> str`
+
+  - **Parámetros:**
+    - `usuario` (str): Nombre del usuario que intenta iniciar sesión.
+    - `clave` (str): Clave proporcionada por el usuario para autenticar su sesión.
+
+  - **Salida:**
+    - Un mensaje (str) indicando el resultado del intento de inicio de sesión:
+      - "Usuario no encontrado" si el usuario no existe.
+      - "Clave incorrecta" si la clave es incorrecta o no cumple con los criterios.
+      - "Inicio de sesión exitoso. Bienvenido {nombre} {apellido}" si el inicio de sesión es exitoso.
+
+### Criterios de Aceptación
+
+1. La función debe verificar si el alumno existe en la lista de alumnos disponibles.
+2. Si el alumno existe, la función debe comprobar que la clave proporcionada coincida con la almacenada.
+3. Debe devolver el mensaje correspondiente según el resultado de cada verificación.
+
+### Casos de Prueba y Resultados Esperados
+
+Dado el siguiente diccionario de datos de ejemplo:
+
+```python
+alumnos = {
+    'C1': {'clave': 'password123', 'nombre': 'Renzo', 'apellido': 'Santillán'},
+    'C2': {'clave': 'securePass456', 'nombre': 'Julio', 'apellido': 'Mandujano'},
+    'C3': {'clave': 'password789', 'nombre': 'Joel', 'apellido': 'Campos'}
+}
+```
+
+| **Caso de Prueba**                           | **Descripción**                                                                                     | **Resultado Esperado**                                                        |
+|----------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| `inicioSesion('C1', 'password123')`          | Alumno con código "C1" (Renzo Santillán) y clave correcta.                                           | `"Inicio de sesión exitoso. Bienvenido Renzo Santillán"`                      |
+| `inicioSesion('C2', 'wrongPass')`            | Alumno con código "C2" (Julio Mandujano) y clave incorrecta.                                         | `"Clave incorrecta"`                                                          |
+| `inicioSesion('C3', 'pass')`                 | Alumno con código "C3" (Joel Campos) y clave incorrecta o de menos de 8 caracteres.                  | `"Clave incorrecta"`                                                          |
+| `inicioSesion('C4', 'anyPassword')`          | Alumno con código "C4" no existe en el sistema.                                                     | `"Usuario no encontrado"`                                                     |
+| `inicioSesion('C1', 'password')`             | Alumno con código "C1" (Renzo Santillán) con clave incorrecta o de 8 caracteres, pero incorrecta.    | `"Clave incorrecta"`                                                          |
+
+---
+
 ## Funcionalidad Detallada: Listado de Cursos
 
 ### Descripción General
