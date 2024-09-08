@@ -1,6 +1,3 @@
-Aquí está el `README.md` actualizado con los enlaces a cada funcionalidad y un footer para darle un toque más profesional y académico:
-
-```markdown
 # Sistema de Control de Notas (SCN)
 
 **Curso:** Introducción a la Programación con Python (IAP)  
