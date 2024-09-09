@@ -41,7 +41,7 @@ Desarrollar una función en Python que permita a los alumnos iniciar sesión en 
     - Un mensaje (str) indicando el resultado del intento de inicio de sesión:
       - "Usuario no encontrado" si el usuario no existe.
       - "Clave incorrecta" si la clave es incorrecta o no cumple con los criterios.
-      - "Inicio de sesión exitoso. Bienvenido {nombre} {apellido}" si el inicio de sesión es exitoso.
+      - Un objeto `{alumno}` sin su clave, si el inicio de sesión es exitoso.
 
 ### Criterios de Aceptación
 
