@@ -45,7 +45,7 @@ Desarrollar una función en Python que permita a los alumnos iniciar sesión en 
 
 ### Criterios de Aceptación
 
-1. La función debe verificar si el alumno existe en la lista de alumnos disponibles.
+1. La función debe verificar si el alumno existe en el diccionario de alumnos.
 2. Si el alumno existe, la función debe comprobar que la clave proporcionada coincida con la almacenada y que cumpla los criterios de longitud (no menor a 8 caracteres).
 3. Debe devolver el mensaje correspondiente según el resultado de cada verificación.
 
@@ -84,7 +84,7 @@ Desarrollar una función en Python que permita listar los cursos en los que est�
   - **Parámetros:**
     - `codigo` (str): Código único del alumno.
     - `estado` (str): Estado del curso a filtrar. Puede ser "aprobado", "desaprobado" o "todos".
-    - `ordenarPorNota` (bool): Determina si los cursos se ordenan de mayor a menor nota (`True`/`False`).
+    - `ordenarPorNota` (bool): Determina si los cursos se ordenan de mayor a menor nota (`True` para mayor y `False` para menor).
 
   - **Salida:**
     Una lista de diccionarios que contiene la información de los cursos:
@@ -93,7 +93,7 @@ Desarrollar una función en Python que permita listar los cursos en los que est�
     - `nota` (float): Nota obtenida en el curso.
     - `grado` (str): Grado en el que se imparte el curso.
     - `profesor` (str): Nombre del profesor que imparte el curso.
-    - `estado` (str): Estado de aprobación del curso ("aprobado" o "desaprobado").
+    - `estado` (str): Estado de aprobación del curso ("aprobado", "desaprobado" y "todos").
 
 ### Criterios de Aceptación
 
@@ -107,7 +107,7 @@ Desarrollar una función en Python que permita listar los cursos en los que est�
 Dado el siguiente diccionario de datos de ejemplo:
 
 ```python
-cursos = [
+"C1" : [
     {'id': 'C101', 'nombreCurso': 'Matemáticas', 'nota': 18.5, 'grado': '5to', 'profesor': 'Renzo Santillán', 'estado': 'aprobado'},
     {'id': 'C102', 'nombreCurso': 'Ciencias', 'nota': 16.0, 'grado': '5to', 'profesor': 'Pamela Vinazza', 'estado': 'aprobado'},
     {'id': 'C103', 'nombreCurso': 'Historia', 'nota': 9.0, 'grado': '5to', 'profesor': 'Joel Campos', 'estado': 'desaprobado'}
