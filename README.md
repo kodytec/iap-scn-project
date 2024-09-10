@@ -5,7 +5,7 @@
 
 ## Descripción del Proyecto
 
-El proyecto **Sistema de Control de Notas (SCN)** es una aplicación diseñada para gestionar la información académica y financiera de los alumnos de un curso. Esta aplicación permitirá a los alumnos iniciar sesión, visualizar los cursos en los que están inscritos, gestionar sus pagos y realizar nuevos pagos.
+El proyecto **Sistema de Control de Notas (SCN)** es una aplicación (Web y Mobile) diseñada para gestionar la información académica y financiera de los alumnos de un curso. Esta aplicación permitirá a los alumnos iniciar sesión, visualizar los cursos en los que están inscritos y gestionar sus pagos.
 
 ### Funcionalidades Principales
 
@@ -27,26 +27,26 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación diseñada p
 
 ### Descripción General
 
-Desarrollar una función en Python que permita a los alumnos iniciar sesión en el sistema verificando su nombre de usuario y clave. La función debe comprobar si el alumno existe y si la clave coincide con la clave almacenada, sin proporcionar detalles sobre el motivo de una clave incorrecta para mantener la seguridad.
+Desarrollar una función en Python que permita a los alumnos iniciar sesión en el sistema verificando su código de alumno y clave.
 
 ### Detalle de la Funcionalidad
 
-- **Función:** `inicioSesion(usuario: str, clave: str) -> str`
+- **Nombre de la función:** `inicioSesion(codigo, clave)`
 
   - **Parámetros:**
-    - `usuario` (str): Nombre del usuario que intenta iniciar sesión.
-    - `clave` (str): Clave proporcionada por el usuario para autenticar su sesión.
+    - `codigo` (str): Código de alumno que intenta iniciar sesión.
+    - `clave` (str): Clave proporcionada por el alumno.
 
   - **Salida:**
-    - Un mensaje (str) indicando el resultado del intento de inicio de sesión:
-      - "Usuario no encontrado" si el usuario no existe.
-      - "Clave incorrecta" si la clave es incorrecta o no cumple con los criterios.
-      - Un objeto `{alumno}` sin su clave, si el inicio de sesión es exitoso.
+    - Un mensaje (str):
+       1. `"Usuario no encontrado"` si el usuario no existe.
+       1. `"Clave incorrecta"` si la clave es incorrecta o no cumple con los criterios.
+       1. `"Inicio de sesión exitoso. Bienvenido [NOMBRE]"`, en caso de éxito.
 
 ### Criterios de Aceptación
 
 1. La función debe verificar si el alumno existe en la lista de alumnos disponibles.
-2. Si el alumno existe, la función debe comprobar que la clave proporcionada coincida con la almacenada.
+2. Si el alumno existe, la función debe comprobar que la clave proporcionada coincida con la almacenada y que cumpla los criterios de longitud (no menor a 8 caracteres).
 3. Debe devolver el mensaje correspondiente según el resultado de cada verificación.
 
 ### Casos de Prueba y Resultados Esperados
@@ -75,14 +75,14 @@ alumnos = {
 
 ### Descripción General
 
-Desarrollar una función en Python que permita listar los cursos en los que está inscrito un alumno específico, con la capacidad de filtrar los cursos por su estado (aprobado o desaprobado) y ordenar los resultados de mayor a menor nota.
+Desarrollar una función en Python que permita listar los cursos en los que está inscrito un alumno específico, con la capacidad de filtrar los cursos por su estado (`aprobado` o `desaprobado`) y ordenar los resultados de mayor a menor nota.
 
 ### Detalle de la Funcionalidad
 
-- **Función:** `listarCursosPorAlumno(codigoAlumno: str, estado: str, ordenarPorNota: bool) -> list[dict]`
+- **Función:** `listarCursosPorAlumno(codigo, estado, ordenarPorNota)`
   
   - **Parámetros:**
-    - `codigoAlumno` (str): Código único del alumno.
+    - `codigo` (str): Código único del alumno.
     - `estado` (str): Estado del curso a filtrar. Puede ser "aprobado", "desaprobado" o "todos".
     - `ordenarPorNota` (bool): Determina si los cursos se ordenan de mayor a menor nota (`True`/`False`).
 
