@@ -123,6 +123,54 @@ Dado el siguiente diccionario de datos de ejemplo:
 
 ---
 
+## Listado de Pagos
+
+Desarrollar una función en Python que permita listar los pagos realizados por un alumno, con la capacidad de filtrar por estado (`Pagado`, `Pendiente`, `Vencido`, `Todos`) y por fecha (a partir de una fecha específica).
+
+### Detalle de la Funcionalidad
+
+- **Función:** `listarPagosPorAlumno(codigo, estado, desde)`
+  
+  - **Parámetros:**
+    - `codigo` (str): Código único del alumno.
+    - `estado` (str): Estado del pago a filtrar. Puede ser "Pagado", "Pendiente", "Vencido" o "todos".
+    - `desde` (str, formato `YYYY-MM-DD`): Filtrar los pagos realizados a partir de esta fecha.
+
+  - **Salida:**
+    Una lista de diccionarios con la información de los pagos:
+    - `idPago` (str): Identificador único del pago.
+    - `fecha` (str, formato `YYYY-MM-DD`): Fecha del pago.
+    - `monto` (float): Monto del pago.
+    - `estado` (str): Estado del pago ("Pagado", "Pendiente", "Vencido").
+
+### Criterios de Aceptación
+
+1. La función debe devolver una lista de pagos filtrados correctamente por el estado solicitado.
+2. Si se proporciona una fecha, la función solo debe mostrar los pagos realizados desde esa fecha en adelante.
+3. Si no hay pagos que coincidan con los criterios de búsqueda, la función debe devolver una lista vacía.
+
+### Casos de Prueba y Resultados Esperados
+
+Dado el siguiente diccionario de ejemplo:
+
+```python
+pagos = {
+    'C1': [
+        {'id': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'},
+        {'id': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'},
+        {'id': 'P103', 'fecha': '2024-03-05', 'monto': 300.0, 'estado': 'Vencido'}
+    ]
+}
+```
+
+| **Caso de Prueba**                                          | **Descripción**                                                                 | **Resultado Esperado**                                                                                                  |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `listarPagosPorAlumno('C1', 'Pagado', '2024-01-01')`        | Filtra los pagos "Pagado" a partir del 1 de enero de 2024.                       | `[{'id': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'}]`                                       |
+| `listarPagosPorAlumno('C1', 'Pendiente', '2024-02-01')`     | Filtra los pagos "Pendiente" a partir del 1 de febrero de 2024.                  | `[{'id': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}]`                                    |
+| `listarPagosPorAlumno('C1', 'todos', '2024-01-01')`         | Muestra todos los pagos a partir del 1 de enero de 2024.                         | `[{'id': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'}, {'id': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}, {'id': 'P103', 'fecha': '2024-03-05', 'monto': 300.0, 'estado': 'Vencido'}]` |
+
+---
+
 ## A cerca de
 
 Este proyecto es parte del curso **Introducción a la Programación con Python (IAP)** ofrecido por **Kodytec**.  
