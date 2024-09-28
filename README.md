@@ -72,6 +72,7 @@ alumnos = {
 | `inicioSesion('C1', 'password')`             | Alumno con código "C1" (Renzo Santillán) con clave incorrecta o de 8 caracteres, pero incorrecta.    | `"Clave incorrecta"`                                                          |
 
 
+
 ## Listar cursos
 
 ### Descripción General
@@ -122,7 +123,8 @@ Dado el siguiente diccionario de datos de ejemplo:
 | `listarCursosPorAlumno('C1', 'todos', True)`       | Muestra todos los cursos del alumno con código 'C1' y los ordena de mayor a menor nota.                    | `[{'id': 'C101', 'nombreCurso': 'Matemáticas', 'nota': 18.5, 'grado': '5to', 'profesor': 'Renzo Santillán', 'estado': 'aprobado'}, {'id': 'C102', 'nombreCurso': 'Ciencias', 'nota': 16.0, 'grado': '5to', 'profesor': 'Pamela Vinazza', 'estado': 'aprobado'}, {'id': 'C103', 'nombreCurso': 'Historia', 'nota': 9.0, 'grado': '5to', 'profesor': 'Joel Campos', 'estado': 'desaprobado'}]` |
 | `listarCursosPorAlumno('C2', 'aprobado', True)`    | Filtra los cursos aprobados del alumno con código 'C2' y los ordena de mayor a menor nota.                  | `[]` (Lista vacía si el alumno no tiene cursos que coincidan con los criterios de búsqueda).                                                                          |
 
-## Listado de Pagos
+
+## Listar pagos
 
 Desarrollar una función en Python que permita listar los pagos realizados por un alumno, con la capacidad de filtrar por estado (`Pagado`, `Pendiente`, `Vencido`, `Todos`) y por fecha (a partir de una fecha específica).
 
@@ -168,7 +170,8 @@ pagos = {
 | `listarPagosPorAlumno('C1', 'Pendiente', '2024-02-01')`     | Filtra los pagos "Pendiente" a partir del 1 de febrero de 2024.                  | `[{'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}]`                                    |
 | `listarPagosPorAlumno('C1', 'todos', '2024-01-01')`         | Muestra todos los pagos a partir del 1 de enero de 2024.                         | `[{'codigoPago': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'}, {'id': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}, {'codigoPago': 'P103', 'fecha': '2024-03-05', 'monto': 300.0, 'estado': 'Vencido'}]` |
 
----
+
+
 ## Obtener descuento
 
 ### Descripción General
@@ -218,7 +221,7 @@ Desarrollar una función en Python que calcule el descuento para un pago basado 
 
 ---
 ## A cerca de
----
+
 Este proyecto es parte del curso **Introducción a la Programación con Python (IAP)** ofrecido por **Kodytec**.  
 Para más información sobre el curso y otros proyectos, visita nuestro sitio web https://kodytec.pe o contáctanos directamente al +51 968491916.  
 **Kodytec** se compromete a brindar educación de calidad en el campo de la programación y tecnología a colegios nacionales y particulares.
