@@ -24,7 +24,6 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación (Web y Mobi
 5. **[Pagar](#pagar):**  
    Permitir a los alumnos realizar pagos pendientes directamente desde la aplicación.
 
----
 
 ## Inicio de Sesión
 
@@ -72,9 +71,9 @@ alumnos = {
 | `inicioSesion('C4', 'anyPassword')`          | Alumno con código "C4" no existe en el sistema.                                                     | `"Usuario no encontrado"`                                                     |
 | `inicioSesion('C1', 'password')`             | Alumno con código "C1" (Renzo Santillán) con clave incorrecta o de 8 caracteres, pero incorrecta.    | `"Clave incorrecta"`                                                          |
 
----
+
 ## Listar cursos
----
+
 ### Descripción General
 
 Desarrollar una función en Python que permita listar los cursos en los que está inscrito un alumno específico, con la capacidad de filtrar los cursos por su estado (`aprobado` o `desaprobado`) y ordenar los resultados de mayor a menor nota.
@@ -123,7 +122,6 @@ Dado el siguiente diccionario de datos de ejemplo:
 | `listarCursosPorAlumno('C1', 'todos', True)`       | Muestra todos los cursos del alumno con código 'C1' y los ordena de mayor a menor nota.                    | `[{'id': 'C101', 'nombreCurso': 'Matemáticas', 'nota': 18.5, 'grado': '5to', 'profesor': 'Renzo Santillán', 'estado': 'aprobado'}, {'id': 'C102', 'nombreCurso': 'Ciencias', 'nota': 16.0, 'grado': '5to', 'profesor': 'Pamela Vinazza', 'estado': 'aprobado'}, {'id': 'C103', 'nombreCurso': 'Historia', 'nota': 9.0, 'grado': '5to', 'profesor': 'Joel Campos', 'estado': 'desaprobado'}]` |
 | `listarCursosPorAlumno('C2', 'aprobado', True)`    | Filtra los cursos aprobados del alumno con código 'C2' y los ordena de mayor a menor nota.                  | `[]` (Lista vacía si el alumno no tiene cursos que coincidan con los criterios de búsqueda).                                                                          |
 
----
 ## Listado de Pagos
 
 Desarrollar una función en Python que permita listar los pagos realizados por un alumno, con la capacidad de filtrar por estado (`Pagado`, `Pendiente`, `Vencido`, `Todos`) y por fecha (a partir de una fecha específica).
