@@ -220,7 +220,7 @@ Desarrollar una función en Python que calcule el descuento para un pago basado 
 | `calcularDescuento('Pension', 'ELIM', 1000.0)`           | Calcula el descuento para un alumno de categoría "ELIM" con el concepto "Pension".   | `{'descuento': '0%', 'montoDescuento': 0.0, 'montoFinal': 1000.0}`                                              |
 Continuando con el **Sistema de Control de Notas (SCN)**, a continuación se completa la funcionalidad relacionada con el **Listado de Pagos** y **Realizar Pago**.
 
----
+
 
 ## Listar Pagos
 
@@ -270,9 +270,6 @@ pagos = {
 | `listarPagosPorAlumno('C1', 'Pendiente', '2024-02-01')`     | Filtra los pagos "Pendiente" a partir del 1 de febrero de 2024.                  | `[{'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}]`                                    |
 | `listarPagosPorAlumno('C1', 'todos', '2024-01-01')`         | Muestra todos los pagos a partir del 1 de enero de 2024.                         | `[{'codigoPago': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'}, {'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}, {'codigoPago': 'P103', 'fecha': '2024-03-05', 'monto': 300.0, 'estado': 'Vencido'}]` |
 
-Aquí está la versión mejorada de la función **pagar** basada en los nuevos requisitos.
-
----
 
 ## Realizar Pago
 
@@ -282,7 +279,7 @@ Desarrollar una función en Python que permita a los alumnos realizar un pago pe
 
 ### Detalle de la Funcionalidad
 
-- **Función:** `pagar(codigoPago, codigoEstudiante, montoFinal)`
+- **Función:** `realizarPago(codigoPago, codigoEstudiante, montoFinal)`
 
   - **Parámetros:**
     - `codigoPago` (str): Código único del pago.
@@ -316,10 +313,10 @@ pagos = {
 
 | **Caso de Prueba**                                  | **Descripción**                                                                 | **Resultado Esperado**                                                                                                       |
 |-----------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| `pagar('P102', 'C1', 150.0)`                        | Realiza el pago "P102" del alumno "C1".                                          | `{'estado': True, 'mensaje': 'Pago realizado exitosamente. Monto actualizado a 150.0'}`                                       |
-| `pagar('P101', 'C1', 200.0)`                        | Intenta realizar el pago "P101" que ya está marcado como "Pagado".               | `{'estado': False, 'mensaje': 'El pago ya fue realizado previamente.'}`                                                      |
-| `pagar('P103', 'C1', 300.0)`                        | Intenta realizar el pago "P103", que no existe en el diccionario de pagos.       | `{'estado': False, 'mensaje': 'El pago no fue encontrado para el estudiante con código C1.'}`                                 |
-| `pagar('P102', 'C2', 150.0)`                        | Intenta realizar el pago "P102" con un código de estudiante incorrecto ("C2").   | `{'estado': False, 'mensaje': 'El código del estudiante no existe.'}`                                                        |
+| `realizarPago('P102', 'C1', 150.0)`                        | Realiza el pago "P102" del alumno "C1".                                          | `{'estado': True, 'mensaje': 'Pago realizado exitosamente. Monto actualizado a 150.0'}`                                       |
+| `realizarPago('P101', 'C1', 200.0)`                        | Intenta realizar el pago "P101" que ya está marcado como "Pagado".               | `{'estado': False, 'mensaje': 'El pago ya fue realizado previamente.'}`                                                      |
+| `realizarPago('P103', 'C1', 300.0)`                        | Intenta realizar el pago "P103", que no existe en el diccionario de pagos.       | `{'estado': False, 'mensaje': 'El pago no fue encontrado para el estudiante con código C1.'}`                                 |
+| `realizarPago('P102', 'C2', 150.0)`                        | Intenta realizar el pago "P102" con un código de estudiante incorrecto ("C2").   | `{'estado': False, 'mensaje': 'El código del estudiante no existe.'}`                                                        |
 
 
 ## A cerca de
