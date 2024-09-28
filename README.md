@@ -9,19 +9,19 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación (Web y Mobi
 
 ### Funcionalidades Principales
 
-1. **[Inicio de sesión](#inicio-de-sesión):**  
+1. **[Inicio de Sesión](#inicio-de-sesión):**  
    Permitir a los alumnos autenticarse en el sistema utilizando sus credenciales.
 
-2. **[Listar cursos](#listar-cursos):**  
+2. **[Listar Cursos](#listar-cursos):**  
    Mostrar los cursos en los que el alumno está inscrito, permitiendo filtrar por estado (aprobado o desaprobado) y ordenar por nota.
 
-3. **[Listar pagos](#listar-pagos):**  
+3. **[Listar Pagos](#listar-pagos):**  
    Mostrar los pagos realizados por el alumno, con la posibilidad de ver el historial completo.
 
-4. **[Obtener descuento](#obtener-descuento):**  
+4. **[Obtener Descuento](#obtener-descuento):**  
    Calcula el descuento de un alumno según su categoría y el concepto de pago.
    
-5. **[Pagar](#pagar):**  
+5. **[Realizar Pago](#realizar-pago):**  
    Permitir a los alumnos realizar pagos pendientes directamente desde la aplicación.
 
 
@@ -73,7 +73,7 @@ alumnos = {
 
 
 
-## Listar cursos
+## Listar Cursos
 
 ### Descripción General
 
@@ -124,7 +124,7 @@ Dado el siguiente diccionario de datos de ejemplo:
 | `listarCursosPorAlumno('C2', 'aprobado', True)`    | Filtra los cursos aprobados del alumno con código 'C2' y los ordena de mayor a menor nota.                  | `[]` (Lista vacía si el alumno no tiene cursos que coincidan con los criterios de búsqueda).                                                                          |
 
 
-## Listar pagos
+## Listar Pagos
 
 Desarrollar una función en Python que permita listar los pagos realizados por un alumno, con la capacidad de filtrar por estado (`Pagado`, `Pendiente`, `Vencido`, `Todos`) y por fecha (a partir de una fecha específica).
 
@@ -172,7 +172,7 @@ pagos = {
 
 
 
-## Obtener descuento
+## Obtener Descuento
 
 ### Descripción General
 
@@ -218,12 +218,112 @@ Desarrollar una función en Python que calcule el descuento para un pago basado 
 | `calcularDescuento('Pension', 'Internacional', 1000.0)`  | Calcula el descuento para un alumno de categoría "Internacional" con el concepto "Pension". | `{'descuento': '9%', 'montoDescuento': 90.0, 'montoFinal': 910.0}`                                              |
 | `calcularDescuento('cuotaIngreso', 'Internacional', 2000.0)` | Calcula el descuento para un alumno de categoría "Internacional" con el concepto "cuotaIngreso". | `{'descuento': '50%', 'montoDescuento': 1000.0, 'montoFinal': 1000.0}`                                        |
 | `calcularDescuento('Pension', 'ELIM', 1000.0)`           | Calcula el descuento para un alumno de categoría "ELIM" con el concepto "Pension".   | `{'descuento': '0%', 'montoDescuento': 0.0, 'montoFinal': 1000.0}`                                              |
+Continuando con el **Sistema de Control de Notas (SCN)**, a continuación se completa la funcionalidad relacionada con el **Listado de Pagos** y **Realizar Pago**.
 
 ---
+
+## Listar Pagos
+
+### Descripción General
+
+Desarrollar una función en Python que permita listar los pagos realizados por un alumno, con la capacidad de filtrar por estado (`Pagado`, `Pendiente`, `Vencido`, `Todos`) y por fecha (a partir de una fecha específica).
+
+### Detalle de la Funcionalidad
+
+- **Función:** `listarPagosPorAlumno(codigo, estado, desde)`
+  
+  - **Parámetros:**
+    - `codigo` (str): Código único del alumno.
+    - `estado` (str): Estado del pago a filtrar. Puede ser "Pagado", "Pendiente", "Vencido" o "todos".
+    - `desde` (str, formato `YYYY-MM-DD`): Filtrar los pagos realizados a partir de esta fecha.
+
+  - **Salida:**
+    Una lista de diccionarios con la información de los pagos:
+    - `codigoPago` (str): Identificador único del pago.
+    - `fecha` (str, formato `YYYY-MM-DD`): Fecha del pago.
+    - `monto` (float): Monto del pago.
+    - `estado` (str): Estado del pago ("Pagado", "Pendiente", "Vencido").
+
+### Criterios de Aceptación
+
+1. La función debe devolver una lista de pagos filtrados correctamente por el estado solicitado.
+2. Si se proporciona una fecha, la función solo debe mostrar los pagos realizados desde esa fecha en adelante.
+3. Si no hay pagos que coincidan con los criterios de búsqueda, la función debe devolver una lista vacía.
+
+### Casos de Prueba y Resultados Esperados
+
+Dado el siguiente diccionario de ejemplo:
+
+```python
+pagos = {
+    'C1': [
+        {'codigoPago': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'},
+        {'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'},
+        {'codigoPago': 'P103', 'fecha': '2024-03-05', 'monto': 300.0, 'estado': 'Vencido'}
+    ]
+}
+```
+
+| **Caso de Prueba**                                          | **Descripción**                                                                 | **Resultado Esperado**                                                                                                  |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `listarPagosPorAlumno('C1', 'Pagado', '2024-01-01')`        | Filtra los pagos "Pagado" a partir del 1 de enero de 2024.                       | `[{'codigoPago': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'}]`                                       |
+| `listarPagosPorAlumno('C1', 'Pendiente', '2024-02-01')`     | Filtra los pagos "Pendiente" a partir del 1 de febrero de 2024.                  | `[{'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}]`                                    |
+| `listarPagosPorAlumno('C1', 'todos', '2024-01-01')`         | Muestra todos los pagos a partir del 1 de enero de 2024.                         | `[{'codigoPago': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'}, {'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}, {'codigoPago': 'P103', 'fecha': '2024-03-05', 'monto': 300.0, 'estado': 'Vencido'}]` |
+
+Aquí está la versión mejorada de la función **pagar** basada en los nuevos requisitos.
+
+---
+
+## Realizar Pago
+
+### Descripción General
+
+Desarrollar una función en Python que permita a los alumnos realizar un pago pendiente proporcionando el código del pago y el código del estudiante.
+
+### Detalle de la Funcionalidad
+
+- **Función:** `pagar(codigoPago, codigoEstudiante, montoFinal)`
+
+  - **Parámetros:**
+    - `codigoPago` (str): Código único del pago.
+    - `codigoEstudiante` (str): Código único del estudiante.
+    - `montoFinal` (float): Monto final a pagar después de descuentos.
+
+  - **Salida:**
+    - Un diccionario con los siguientes campos:
+      - `estado` (bool): `True` si el pago se realizó exitosamente o `False` si hubo algún error.
+      - `mensaje` (str): Un mensaje detallado indicando el resultado, ya sea de éxito o el error encontrado.
+
+### Criterios de Aceptación
+
+1. La función debe verificar si el código del estudiante y el código del pago existen.
+2. Si el pago ya fue realizado, debe devolver un mensaje indicando que el pago ya fue realizado.
+3. Si el pago es válido y está pendiente, debe actualizar el estado del pago a "Pagado" y el monto al `montoFinal`.
+4. Debe devolver un mensaje de éxito o de error, dependiendo del caso.
+
+### Casos de Prueba y Resultados Esperados
+
+Dado el siguiente diccionario de ejemplo:
+
+```python
+pagos = {
+    'C1': [
+        {'codigoPago': 'P101', 'fecha': '2024-01-15', 'monto': 200.0, 'estado': 'Pagado'},
+        {'codigoPago': 'P102', 'fecha': '2024-02-10', 'monto': 150.0, 'estado': 'Pendiente'}
+    ]
+}
+```
+
+| **Caso de Prueba**                                  | **Descripción**                                                                 | **Resultado Esperado**                                                                                                       |
+|-----------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| `pagar('P102', 'C1', 150.0)`                        | Realiza el pago "P102" del alumno "C1".                                          | `{'estado': True, 'mensaje': 'Pago realizado exitosamente. Monto actualizado a 150.0'}`                                       |
+| `pagar('P101', 'C1', 200.0)`                        | Intenta realizar el pago "P101" que ya está marcado como "Pagado".               | `{'estado': False, 'mensaje': 'El pago ya fue realizado previamente.'}`                                                      |
+| `pagar('P103', 'C1', 300.0)`                        | Intenta realizar el pago "P103", que no existe en el diccionario de pagos.       | `{'estado': False, 'mensaje': 'El pago no fue encontrado para el estudiante con código C1.'}`                                 |
+| `pagar('P102', 'C2', 150.0)`                        | Intenta realizar el pago "P102" con un código de estudiante incorrecto ("C2").   | `{'estado': False, 'mensaje': 'El código del estudiante no existe.'}`                                                        |
+
+
 ## A cerca de
 
 Este proyecto es parte del curso **Introducción a la Programación con Python (IAP)** ofrecido por **Kodytec**.  
 Para más información sobre el curso y otros proyectos, visita nuestro sitio web https://kodytec.pe o contáctanos directamente al +51 968491916.  
 **Kodytec** se compromete a brindar educación de calidad en el campo de la programación y tecnología a colegios nacionales y particulares.
-
----
