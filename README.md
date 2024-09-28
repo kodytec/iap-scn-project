@@ -25,8 +25,8 @@ El proyecto **Sistema de Control de Notas (SCN)** es una aplicación (Web y Mobi
    Permitir a los alumnos realizar pagos pendientes directamente desde la aplicación.
 
 ---
+
 ## Inicio de Sesión
----
 
 ### Descripción General
 
@@ -125,7 +125,7 @@ Dado el siguiente diccionario de datos de ejemplo:
 
 ---
 ## Listado de Pagos
----
+
 Desarrollar una función en Python que permita listar los pagos realizados por un alumno, con la capacidad de filtrar por estado (`Pagado`, `Pendiente`, `Vencido`, `Todos`) y por fecha (a partir de una fecha específica).
 
 ### Detalle de la Funcionalidad
@@ -172,7 +172,7 @@ pagos = {
 
 ---
 ## Obtener descuento
----
+
 ### Descripción General
 
 Desarrollar una función en Python que calcule el descuento para un pago basado en el concepto del pago (por ejemplo, matrícula, pensión, cuota de ingreso) y la categoría del alumno.
